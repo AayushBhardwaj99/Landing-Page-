@@ -72,7 +72,7 @@ export default function Hero() {
   const navItems = ['About', 'Projects', 'Services', 'Contact']
 
   return (
-    <div className="relative w-full min-h-screen flex flex-col z-10 selection:bg-[#FAB7C9] selection:text-[#000107]">
+    <div className="relative w-full min-h-screen flex flex-col selection:bg-[#FAB7C9] selection:text-[#000107]">
       {/* 1. Header/Navigation Bar */}
       <motion.header 
         initial={{ y: -50, opacity: 0 }}
@@ -117,7 +117,7 @@ export default function Hero() {
         id="hero" 
         className="min-h-screen w-full flex flex-col justify-center items-center px-6 md:px-12 relative pt-20 pointer-events-none"
       >
-        <div className="max-w-4xl text-center flex flex-col items-center">
+        <div className="max-w-4xl text-center flex flex-col items-center relative z-10">
           {/* Subtle tag */}
           <motion.div 
             initial={{ scale: 0.8, opacity: 0 }}
@@ -134,7 +134,7 @@ export default function Hero() {
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-4xl md:text-7xl font-space font-extrabold tracking-tight mb-6 leading-[1.1] hero-headline"
+            className="relative z-10 text-4xl md:text-7xl font-space font-extrabold tracking-tight mb-6 leading-[1.1] hero-headline"
           >
             <span className="text-white block md:inline">Elevating the Web.</span>{' '}
             <span className="text-gradient block md:inline">Defying Limits.</span>
@@ -145,7 +145,7 @@ export default function Hero() {
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="text-base md:text-xl text-[#E3F6FF]/75 max-w-2xl mb-10 leading-relaxed font-sans"
+            className="relative z-10 text-base md:text-xl text-[#E3F6FF]/75 max-w-2xl mb-10 leading-relaxed font-sans drop-shadow-[0_0_20px_rgba(0,0,0,0.55)]"
           >
             I'm <span className="text-white font-medium">Aayush Bhardwaj</span>. A Full-Stack Developer engineering scalable, high-performance digital experiences.
           </motion.p>
@@ -155,7 +155,7 @@ export default function Hero() {
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4 items-center justify-center pointer-events-auto"
+            className="flex flex-col sm:flex-row gap-4 items-center justify-center pointer-events-auto relative z-40"
           >
             <Button
               onClick={() => {
@@ -186,7 +186,7 @@ export default function Hero() {
           animate={{ opacity: 0.6 }}
           transition={{ delay: 1.2, duration: 1 }}
           onClick={() => scrollToSection('about')}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 cursor-pointer pointer-events-auto group"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 cursor-pointer pointer-events-auto group relative z-40"
         >
           <span className="text-xs tracking-widest text-[#E3F6FF]/50 group-hover:text-[#E3F6FF] transition-colors">SCROLL DOWN</span>
           <div className="w-5 h-8 rounded-full border border-[#E3F6FF]/30 p-1 flex justify-center items-start">
@@ -350,42 +350,44 @@ export default function Hero() {
         id="contact" 
         className="w-full min-h-screen py-32 px-6 md:px-12 flex flex-col justify-center items-center pointer-events-none"
       >
-        <div className="max-w-xl w-full text-center pointer-events-auto">
-          <h2 className="text-3xl md:text-5xl font-space font-extrabold text-white mb-6">
-            Initiate Contact
-          </h2>
-          <p className="text-sm md:text-base text-[#E3F6FF]/75 mb-10 leading-relaxed">
-            Interested in starting a project or exploring a partnership? Drop an email or message through my social endpoints.
-          </p>
-          
-          <div className="glass-card rounded-2xl p-8 flex flex-col gap-6 justify-center items-center max-w-md mx-auto">
-            <a 
-              href="mailto:aayush@example.com" 
-              className="inline-flex items-center gap-3 text-lg text-[#E3F6FF] hover:text-[#FAB7C9] transition-colors font-medium glow-hover-pink"
-            >
-              <Mail className="size-5" /> aayush@example.com
-            </a>
-            
-            <div className="w-full h-px bg-white/5 my-2" />
-            
-            <div className="flex gap-6 justify-center items-center">
+        <div className="max-w-xl w-full relative z-20 pointer-events-auto">
+          <div className="mx-auto w-full bg-[#000107]/70 backdrop-blur-2xl border border-white/10 rounded-2xl p-12 shadow-[0_0_80px_rgba(0,0,0,0.3)] text-center">
+            <h2 className="text-3xl md:text-5xl font-space font-extrabold text-white mb-6">
+              Initiate Contact
+            </h2>
+            <p className="text-sm md:text-base text-[#E3F6FF]/85 mb-10 leading-relaxed">
+              Interested in starting a project or exploring a partnership? Drop an email or message through my social endpoints.
+            </p>
+
+            <div className="flex flex-col gap-6 justify-center items-center max-w-md mx-auto">
               <a 
-                href="https://github.com" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-xs text-[#E3F6FF]/60 hover:text-[#E3F6FF] tracking-wider uppercase font-space transition-colors"
+                href="mailto:aayush@example.com" 
+                className="inline-flex items-center gap-3 text-lg text-[#E3F6FF] hover:text-[#FAB7C9] transition-colors font-medium"
               >
-                Github
+                <Mail className="size-5" /> aayush@example.com
               </a>
-              <span className="text-white/10">•</span>
-              <a 
-                href="https://linkedin.com" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-xs text-[#E3F6FF]/60 hover:text-[#E3F6FF] tracking-wider uppercase font-space transition-colors"
-              >
-                LinkedIn
-              </a>
+              
+              <div className="w-full h-px bg-white/10 my-2" />
+              
+              <div className="flex gap-6 justify-center items-center">
+                <a 
+                  href="https://github.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-xs text-[#E3F6FF]/70 hover:text-[#E3F6FF] tracking-wider uppercase font-space transition-colors"
+                >
+                  Github
+                </a>
+                <span className="text-white/20">•</span>
+                <a 
+                  href="https://linkedin.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-xs text-[#E3F6FF]/70 hover:text-[#E3F6FF] tracking-wider uppercase font-space transition-colors"
+                >
+                  LinkedIn
+                </a>
+              </div>
             </div>
           </div>
         </div>

@@ -139,8 +139,8 @@ export default function Scene() {
   }, [])
 
   return (
-    // Inline styles ensure the canvas is placed deep in the background but still receives pointer movement.
-    <div style={{ position: 'fixed', inset: 0, width: '100%', height: '100%', pointerEvents: 'auto', zIndex: -10 }}>
+    // Inline styles ensure the canvas stays behind the HTML hero content and does not obstruct UI interactions.
+    <div style={{ position: 'fixed', inset: 0, width: '100%', height: '100%', pointerEvents: 'auto', zIndex: -1 }}>
       <Canvas
         camera={{ position: [0, 0, 8], fov: 60 }}
         style={{ pointerEvents: 'auto' }}
@@ -184,7 +184,7 @@ export default function Scene() {
           color="#FAB7C9" 
         />
         
-        {/* The center bioluminescent Jellyfish (kept behind HTML UI) */}
+        {/* The center bioluminescent Jellyfish rendered in front of the hero headline text */}
         <Jellyfish aboutActive={aboutActive} />
         
         {/* Floating embers */}
