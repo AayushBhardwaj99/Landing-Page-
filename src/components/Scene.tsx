@@ -139,11 +139,11 @@ export default function Scene() {
   }, [])
 
   return (
-    // Inline styles ensure the canvas is placed deep in the background and never intercepts UI interactions.
-    <div style={{ position: 'fixed', inset: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: -10 }}>
+    // Inline styles ensure the canvas is placed deep in the background but still receives pointer movement.
+    <div style={{ position: 'fixed', inset: 0, width: '100%', height: '100%', pointerEvents: 'auto', zIndex: -10 }}>
       <Canvas
         camera={{ position: [0, 0, 8], fov: 60 }}
-        style={{ pointerEvents: 'none' }}
+        style={{ pointerEvents: 'auto' }}
         gl={{ antialias: true, alpha: true }}
       >
         {/* Mouse parallax camera controller */}

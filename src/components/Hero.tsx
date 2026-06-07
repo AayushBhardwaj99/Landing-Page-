@@ -202,24 +202,27 @@ export default function Hero() {
       {/* 3. About Section (Scroll Target) */}
       <section 
         id="about" 
-        className="w-full min-h-screen py-32 px-6 md:px-12 flex items-center pointer-events-none"
+        className="w-full min-h-screen py-32 px-6 md:px-12 flex flex-col justify-center items-center pointer-events-none"
       >
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 items-start pointer-events-auto">
-          <div className="flex flex-col gap-6 w-full md:w-1/2">
+        <div className="max-w-4xl w-full">
+          <h2 className="text-3xl md:text-4xl font-space font-extrabold text-center mb-16 text-white">
+            About My Craft
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pointer-events-auto">
             {/* Main Bio Card */}
-            <div className="glass-card rounded-2xl p-8 md:p-12 flex flex-col justify-between">
+            <div className="glass-card rounded-2xl p-8 flex flex-col justify-between">
               <div>
-                <h2 className="text-2xl md:text-3xl font-space font-bold mb-6 text-[#E3F6FF] flex items-center gap-2">
-                  <Terminal className="text-[#FAB7C9] size-6" /> About My Craft
-                </h2>
-                <p className="text-sm md:text-base text-[#E3F6FF]/80 leading-relaxed mb-6">
-                  I specialize in creating fluid, high-performance web applications that bridge code and art. With expertise spanning front-end rendering engines like Three.js and custom GLSL shaders, to robust, production-grade back-end architectures, I build digital assets that scale effortlessly.
-                </p>
-                <p className="text-sm md:text-base text-[#E3F6FF]/80 leading-relaxed">
-                  Every pixel is optimized, and every line of code is structured to prioritize user engagement, accessibility, and visual excellence.
+                <div className="flex justify-between items-start mb-6">
+                  <div className="p-3 rounded-lg bg-white/5 border border-white/5 text-[#FAB7C9]">
+                    <Terminal className="size-6" />
+                  </div>
+                </div>
+                <h3 className="text-xl font-space font-bold mb-3 text-white">Full-Stack Engineer</h3>
+                <p className="text-sm text-[#E3F6FF]/70 leading-relaxed">
+                  I specialize in creating fluid, high-performance web applications that bridge code and art. With expertise spanning front-end rendering engines like Three.js and custom GLSL shaders, to robust, production-grade back-end architectures.
                 </p>
               </div>
-              <div className="mt-8 flex gap-4">
+              <div className="mt-8 pt-6 border-t border-white/5 flex gap-4">
                 <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-full bg-white/5 border border-white/5 hover:bg-white/10 hover:border-[#FAB7C9]/35 text-[#E3F6FF] transition-all">
                   <Github className="size-5" />
                 </a>
@@ -229,33 +232,23 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Orbit / Stack Card */}
-            <div className="glass-card rounded-2xl p-8 flex flex-col justify-between border-dashed">
+            {/* Stack Card */}
+            <div className="glass-card rounded-2xl p-8 flex flex-col justify-between">
               <div>
-                <h3 className="text-xl font-space font-bold mb-6 text-[#E3F6FF] flex items-center gap-2">
-                  <Cpu className="text-[#E3F6FF] size-5" /> Stack
-                </h3>
-                <ul className="space-y-4">
-                  <li className="flex items-center gap-2.5 text-sm text-[#E3F6FF]/80">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#FAB7C9]" />
-                    <span>Next.js / React</span>
-                  </li>
-                  <li className="flex items-center gap-2.5 text-sm text-[#E3F6FF]/80">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#E3F6FF]" />
-                    <span>Three.js / WebGL / GLSL</span>
-                  </li>
-                  <li className="flex items-center gap-2.5 text-sm text-[#E3F6FF]/80">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#FAB7C9]" />
-                    <span>TypeScript / Node.js</span>
-                  </li>
-                  <li className="flex items-center gap-2.5 text-sm text-[#E3F6FF]/80">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#E3F6FF]" />
-                    <span>PostgreSQL / GraphQL</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="mt-8 pt-4 border-t border-white/5 text-xs text-[#E3F6FF]/40 tracking-wider font-space">
-                AAYUSH.ORBIT_ACTIVE = TRUE
+                <div className="flex justify-between items-start mb-6">
+                  <div className="p-3 rounded-lg bg-white/5 border border-white/5 text-[#E3F6FF]">
+                    <Cpu className="size-6" />
+                  </div>
+                </div>
+                <h3 className="text-xl font-space font-bold mb-3 text-white">Tech Stack</h3>
+                <div className="flex flex-wrap gap-2">
+                  <span className="text-[10px] px-2 py-0.5 rounded bg-white/5 text-[#E3F6FF]/70">React / Next.js</span>
+                  <span className="text-[10px] px-2 py-0.5 rounded bg-white/5 text-[#E3F6FF]/70">Three.js / WebGL</span>
+                  <span className="text-[10px] px-2 py-0.5 rounded bg-white/5 text-[#E3F6FF]/70">TypeScript</span>
+                  <span className="text-[10px] px-2 py-0.5 rounded bg-white/5 text-[#E3F6FF]/70">Node.js</span>
+                  <span className="text-[10px] px-2 py-0.5 rounded bg-white/5 text-[#E3F6FF]/70">PostgreSQL</span>
+                  <span className="text-[10px] px-2 py-0.5 rounded bg-white/5 text-[#E3F6FF]/70">GraphQL</span>
+                </div>
               </div>
             </div>
           </div>

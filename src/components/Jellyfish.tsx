@@ -181,50 +181,69 @@ export default function Jellyfish({ aboutActive }: { aboutActive: boolean }) {
     }
     
     const basePosition = new THREE.Vector3(
-      aboutActive ? 3.2 : 0,
+      0,
       aboutActive ? 0.4 : 0,
       0
     )
 
-    const cursorOffset = new THREE.Vector3(
-      state.pointer.x * 0.8,
-      state.pointer.y * 0.45,
-      state.pointer.y * -0.3
+    // Clamp X movement to prevent the jellyfish drifting too far right
+    const pointerX = Math.min(state.pointer.x * 2.5, 0.8)
+    
+    const pointerTarget = new THREE.Vector3(
+      pointerX,
+      state.pointer.y * 1.2,
+      state.pointer.y * -0.5
     )
 
     const ambientWander = new THREE.Vector3(
-      Math.sin(t * 0.3) * 0.25,
-      Math.cos(t * 0.25) * 0.15,
-      Math.sin(t * 0.15) * 0.18
+      Math.sin(t * 0.3) * 0.18,
+      Math.cos(t * 0.25) * 0.12,
+      Math.sin(t * 0.15) * 0.12
     )
 
     const target = basePosition.clone()
-    if (mouse.current.active) {
-      target.add(cursorOffset)
-    } else {
-      target.add(ambientWander)
-    }
-    
+      .add(mouse.current.active ? pointerTarget : ambientWander)
+
     // 3. Smoothly lerp jellyfish position towards target
     if (jellyfishGroup.current) {
-      jellyfishGroup.current.position.lerp(target, 0.04)
-      
-      // Calculate velocity for natural tilts
-      const diffX = target.x - jellyfishGroup.current.position.x
-      const diffY = target.y - jellyfishGroup.current.position.y
-      
-      // Tilt swimming orientation towards movement direction
-      const targetTiltZ = -diffX * 0.08
-      const targetTiltX = diffY * 0.08
-      
-      jellyfishGroup.current.rotation.z = THREE.MathUtils.lerp(jellyfishGroup.current.rotation.z, targetTiltZ, 0.05)
-      jellyfishGroup.current.rotation.x = THREE.MathUtils.lerp(jellyfishGroup.current.rotation.x, targetTiltX, 0.05)
-      
-      // Slow pulsing roll rotation
+      jellyfishGroup.current.position.x = THREE.MathUtils.lerp(
+        jellyfishGroup.current.position.x,
+        target.x,
+        0.15
+      )
+      jellyfishGroup.current.position.y = THREE.MathUtils.lerp(
+        jellyfishGroup.current.position.y,
+        target.y,
+        0.15
+      )
+      jellyfishGroup.current.position.z = THREE.MathUtils.lerp(
+        jellyfishGroup.current.position.z,
+        target.z,
+        0.15
+      )
+
+      // Subtle orientation toward cursor movement
       jellyfishGroup.current.rotation.y = THREE.MathUtils.lerp(
-        jellyfishGroup.current.rotation.y, 
-        t * 0.05 + Math.sin(t * 0.2) * 0.1, 
+        jellyfishGroup.current.rotation.y,
+        state.pointer.x * 0.16,
+        0.06
+      )
+      jellyfishGroup.current.rotation.x = THREE.MathUtils.lerp(
+        jellyfishGroup.current.rotation.x,
+        state.pointer.y * 0.12,
+        0.06
+      )
+      jellyfishGroup.current.rotation.z = THREE.MathUtils.lerp(
+        jellyfishGroup.current.rotation.z,
+        -state.pointer.x * 0.04,
         0.05
+      )
+
+      // Slow pulsing roll rotation on top of cursor-facing orientation
+      jellyfishGroup.current.rotation.y = THREE.MathUtils.lerp(
+        jellyfishGroup.current.rotation.y,
+        jellyfishGroup.current.rotation.y + Math.sin(t * 0.22) * 0.05,
+        0.02
       )
       
       const currentPos = jellyfishGroup.current.position
