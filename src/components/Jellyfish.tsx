@@ -82,10 +82,10 @@ const JellyfishMaterial = shaderMaterial(
       
       // Soft pulsing light
       float pulseLight = sin(uTime * 2.5) * 0.1 + 0.9;
-      glow *= pulseLight;
+      glow *= pulseLight * 0.8;
       
       // Transparency
-      float alpha = fresnel * 0.75 + pow(core, 3.0) * 0.5 + 0.12;
+      float alpha = (fresnel * 0.75 + pow(core, 3.0) * 0.5 + 0.12) * 0.45;
       
       gl_FragColor = vec4(glow, alpha);
     }
@@ -180,10 +180,12 @@ export default function Jellyfish({ aboutActive }: { aboutActive: boolean }) {
       }
     }
     
+    // Raise the jellyfish baseline so the bell sits above the headline and badge.
+    // Keep the previous z-offset (-2) so the model remains in the background.
     const basePosition = new THREE.Vector3(
       0,
-      aboutActive ? 0.4 : 0,
-      0
+      aboutActive ? 1.6 : 1.2,
+      -2
     )
 
     // Clamp X movement to prevent the jellyfish drifting too far right
@@ -365,29 +367,33 @@ export default function Jellyfish({ aboutActive }: { aboutActive: boolean }) {
   }
 
   return (
-    <group ref={jellyfishGroup}>
+    <group ref={jellyfishGroup} scale={[1.8, 1.8, 1.8]}>
       {/* 3D Bell (Body) */}
       <mesh position={[0, 0, 0]}>
         <sphereGeometry args={[1.5, 64, 64, 0, Math.PI * 2, 0, Math.PI * 0.55]} />
         {/* @ts-ignore */}
-        <jellyfishMaterial ref={materialRef} transparent depthWrite={false} side={THREE.DoubleSide} />
+        <jellyfishMaterial ref={materialRef} transparent depthWrite={false} side={THREE.DoubleSide} opacity={0.5} />
       </mesh>
       
-      {/* Inner Glowing Organs (Hypothetical bioluminescent details inside the bell) */}
+      {/* Inner Glowing Core (stable constant color, no scroll-based hue shifts) */}
       <mesh position={[0, 0.2, 0]} scale={[0.5, 0.4, 0.5]}>
         <sphereGeometry args={[1.0, 16, 16]} />
-        <meshBasicMaterial 
-          color="#FAB7C9" 
-          transparent 
-          opacity={0.35} 
-          blending={THREE.AdditiveBlending}
+        <meshStandardMaterial
+          color="#FAB7C9"
+          emissive="#FAB7C9"
+          emissiveIntensity={0.6}
+          roughness={0.35}
+          metalness={0.1}
+          transparent
+          opacity={0.65}
+          toneMapped={false}
         />
       </mesh>
       
       {/* Inner Point Light to project bioluminescence onto environment */}
       <pointLight 
         color="#FAB7C9" 
-        intensity={6.0} 
+        intensity={4.0} 
         distance={10} 
         decay={2.0} 
         position={[0, 0, 0]} 
