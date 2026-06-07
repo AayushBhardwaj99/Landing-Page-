@@ -181,22 +181,24 @@ export default function Hero() {
         </div>
 
         {/* Scroll Indicator */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.6 }}
-          transition={{ delay: 1.2, duration: 1 }}
-          onClick={() => scrollToSection('about')}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 cursor-pointer pointer-events-auto group relative z-40"
-        >
-          <span className="text-xs tracking-widest text-[#E3F6FF]/50 group-hover:text-[#E3F6FF] transition-colors">SCROLL DOWN</span>
-          <div className="w-5 h-8 rounded-full border border-[#E3F6FF]/30 p-1 flex justify-center items-start">
-            <motion.div 
-              animate={{ y: [0, 12, 0] }}
-              transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
-              className="w-1.5 h-1.5 rounded-full bg-[#FAB7C9]"
-            />
-          </div>
-        </motion.div>
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center z-10 pointer-events-auto">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.6 }}
+            transition={{ delay: 1.2, duration: 1 }}
+            onClick={() => scrollToSection('about')}
+            className="flex flex-col items-center gap-1 cursor-pointer group"
+          >
+            <span className="text-xs tracking-widest text-[#E3F6FF]/50 group-hover:text-[#E3F6FF] transition-colors">SCROLL DOWN</span>
+            <div className="w-5 h-8 rounded-full border border-[#E3F6FF]/30 p-1 flex justify-center items-start">
+              <motion.div 
+                animate={{ y: [0, 12, 0] }}
+                transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
+                className="w-1.5 h-1.5 rounded-full bg-[#FAB7C9]"
+              />
+            </div>
+          </motion.div>
+        </div>
       </section>
 
       {/* 3. About Section (Scroll Target) */}
