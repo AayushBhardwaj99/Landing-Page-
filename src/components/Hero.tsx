@@ -123,7 +123,7 @@ export default function Hero() {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full glow-badge text-xs text-[#FAB7C9] mb-6 tracking-wider font-space"
+            className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#000107]/60 backdrop-blur-md border border-white/20 text-xs text-[#E3F6FF] mb-6 tracking-wider font-space"
           >
             <Sparkles className="size-3" /> INTRODUCING THE DIGITAL FRONTIER
           </motion.div>
