@@ -267,45 +267,56 @@ export default function Hero() {
             Curated Creations
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pointer-events-auto">
-            {/* Project 1 */}
-            <div className="glass-card rounded-2xl p-8 flex flex-col justify-between">
+            {/* Project 1: Chatty */}
+            <div className="glass-card rounded-2xl p-8 flex flex-col justify-between h-auto">
               <div>
                 <div className="flex justify-between items-start mb-6">
-                  <div className="p-3 rounded-lg bg-white/5 border border-white/5 text-[#FAB7C9]">
+                  <div className="p-3 rounded-lg bg-white/5 border border-white/5 text-[#E3F6FF]">
                     <Layers className="size-6" />
                   </div>
-                  <span className="text-xs text-[#E3F6FF]/40 tracking-wider font-space">2026</span>
+                  <span className="text-xs text-[#E3F6FF]/40 tracking-wider font-space">Nov 2025 – Present</span>
                 </div>
-                <h3 className="text-xl font-space font-bold mb-3 text-white">Bioluminescent Shader Sandbox</h3>
-                <p className="text-sm text-[#E3F6FF]/70 leading-relaxed">
-                  An interactive, web-based playground for writing and rendering GLSL shaders that simulate natural bioluminescence patterns in real-time.
-                </p>
+                <h3 className="text-xl font-space font-bold mb-3 text-white">Chatty</h3>
+                <div className="text-sm text-[#E3F6FF]/70 leading-relaxed space-y-2">
+                  <ul className="list-disc list-inside space-y-1">
+                    <li>Engineered a high-concurrency chat architecture using the MERN stack and Socket.io, enabling sub-100ms real-time messaging and live synchronization of user presence across distributed clients.</li>
+                    <li>Architected a robust global state management system using Zustand, optimizing frontend performance by reducing unnecessary re-renders during high-frequency data updates.</li>
+                    <li>Implemented a secure, scalable authentication layer using JWT and advanced error-handling protocols (Client/Server), ensuring 99.9% data integrity.</li>
+                  </ul>
+                </div>
               </div>
-              <div className="mt-8 pt-6 border-t border-white/5 flex gap-2">
-                <span className="text-[10px] px-2 py-0.5 rounded bg-white/5 text-[#E3F6FF]/70">R3F</span>
-                <span className="text-[10px] px-2 py-0.5 rounded bg-white/5 text-[#E3F6FF]/70">GLSL</span>
-                <span className="text-[10px] px-2 py-0.5 rounded bg-white/5 text-[#E3F6FF]/70">TypeScript</span>
+              <div className="mt-8 pt-6 border-t border-white/5 flex gap-2 flex-wrap">
+                <span className="text-[10px] px-2 py-0.5 rounded bg-white/5 text-[#E3F6FF]/70">MERN</span>
+                <span className="text-[10px] px-2 py-0.5 rounded bg-white/5 text-[#E3F6FF]/70">Socket.io</span>
+                <span className="text-[10px] px-2 py-0.5 rounded bg-white/5 text-[#E3F6FF]/70">Zustand</span>
+                <span className="text-[10px] px-2 py-0.5 rounded bg-white/5 text-[#E3F6FF]/70">TailwindCSS</span>
+                <span className="text-[10px] px-2 py-0.5 rounded bg-white/5 text-[#E3F6FF]/70">Daisy UI</span>
               </div>
             </div>
 
-            {/* Project 2 */}
-            <div className="glass-card rounded-2xl p-8 flex flex-col justify-between">
+            {/* Project 2: Solana Wallet Generator */}
+            <div className="glass-card rounded-2xl p-8 flex flex-col justify-between h-auto">
               <div>
                 <div className="flex justify-between items-start mb-6">
                   <div className="p-3 rounded-lg bg-white/5 border border-white/5 text-[#E3F6FF]">
                     <Terminal className="size-6" />
                   </div>
-                  <span className="text-xs text-[#E3F6FF]/40 tracking-wider font-space">2026</span>
+                  <span className="text-xs text-[#E3F6FF]/40 tracking-wider font-space">May 2025 – Aug 2025</span>
                 </div>
-                <h3 className="text-xl font-space font-bold mb-3 text-white">Scalable FaaS Orchestrator</h3>
-                <p className="text-sm text-[#E3F6FF]/70 leading-relaxed">
-                  A high-throughput serverless function coordinator utilizing event streams and low-latency clustering to scale up to 10k concurrent tasks.
-                </p>
+                <h3 className="text-xl font-space font-bold mb-3 text-white">Solana Wallet Generator</h3>
+                <div className="text-sm text-[#E3F6FF]/70 leading-relaxed space-y-2">
+                  <ul className="list-disc list-inside space-y-1">
+                    <li>Implemented client-side encryption protocols to ensure sensitive private keys are never exposed to the network, demonstrating a deep understanding of software security and data integrity.</li>
+                    <li>Leveraged asynchronous JavaScript and TypeScript to provide a high-performance, non-blocking user interface for real-time wallet derivation and status tracking.</li>
+                    <li>Designed system architecture using Modular Design Principles for multi-chain support, and implemented continuous delivery using TravisCI.</li>
+                  </ul>
+                </div>
               </div>
-              <div className="mt-8 pt-6 border-t border-white/5 flex gap-2">
-                <span className="text-[10px] px-2 py-0.5 rounded bg-white/5 text-[#E3F6FF]/70">Go</span>
-                <span className="text-[10px] px-2 py-0.5 rounded bg-white/5 text-[#E3F6FF]/70">Redis</span>
-                <span className="text-[10px] px-2 py-0.5 rounded bg-white/5 text-[#E3F6FF]/70">Kubernetes</span>
+              <div className="mt-8 pt-6 border-t border-white/5 flex gap-2 flex-wrap">
+                <span className="text-[10px] px-2 py-0.5 rounded bg-white/5 text-[#E3F6FF]/70">Solana</span>
+                <span className="text-[10px] px-2 py-0.5 rounded bg-white/5 text-[#E3F6FF]/70">TypeScript</span>
+                <span className="text-[10px] px-2 py-0.5 rounded bg-white/5 text-[#E3F6FF]/70">Tailwind CSS</span>
+                <span className="text-[10px] px-2 py-0.5 rounded bg-white/5 text-[#E3F6FF]/70">TravisCI</span>
               </div>
             </div>
           </div>
@@ -363,10 +374,10 @@ export default function Hero() {
 
             <div className="flex flex-col gap-6 justify-center items-center max-w-md mx-auto">
               <a 
-                href="mailto:aayush@example.com" 
+                href="mailto:work.aayush18@gmail.com" 
                 className="inline-flex items-center gap-3 text-lg text-[#E3F6FF] hover:text-[#FAB7C9] transition-colors font-medium"
               >
-                <Mail className="size-5" /> aayush@example.com
+                <Mail className="size-5" /> work.aayush18@gmail.com
               </a>
               
               <div className="w-full h-px bg-white/10 my-2" />
